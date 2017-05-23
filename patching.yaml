@@ -1,0 +1,35 @@
+---
+- name: Example ansible play that requires reboot
+  sudo: "yes"
+  gather_facts: "no"
+  hosts:
+    - myhosts
+  tasks:
+    - name: example task that requires reboot
+      yum: name=* state=latest
+      notify: reboot sequence
+  handlers:
+    - name: reboot sequence
+      changed_when: "true"
+      debug: msg='trigger machine reboot sequence'
+      notify:
+        - get current time
+        - reboot system
+        - waiting for server to come back
+        - verify a reboot was actually initiated
+    - name: get current time
+      command: /bin/date +%s
+      register: before_reboot
+      sudo: false
+    - name: reboot system
+      shell: sleep 2 && shutdown -r now "Ansible package updates triggered"
+      async: 1
+      poll: 0
+      ignore_errors: true
+    - name: Wait for server to restart
+      local_action:
+        module: wait_for
+         host={{ inventory_hostname }}
+         port=22
+         delay=1
+         timeout=300
