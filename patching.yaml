@@ -6,7 +6,7 @@
     - myhosts
   tasks:
     - name: example task that requires reboot
-      yum: name=* state=latest
+      dnf: name=* state=latest
       notify: reboot sequence
   handlers:
     - name: reboot sequence
