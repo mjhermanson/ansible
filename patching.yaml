@@ -16,7 +16,6 @@
         - get current time
         - reboot system
         - waiting for server to come back
-        - verify a reboot was actually initiated
     - name: get current time
       command: /bin/date +%s
       register: before_reboot
@@ -26,7 +25,7 @@
       async: 1
       poll: 0
       ignore_errors: true
-    - name: Wait for server to restart
+    - name: waiting for server to come back 
       local_action:
         module: wait_for
          host={{ inventory_hostname }}
