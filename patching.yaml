@@ -5,7 +5,7 @@
   hosts:
     - myhosts
   tasks:
-    - name: example task that requires reboot
+    - name: Update all available packages 
       yum: name=* state=latest
       notify: reboot sequence
   handlers:
@@ -25,10 +25,13 @@
       async: 1
       poll: 0
       ignore_errors: true
+      register: reboot
     - name: waiting for server to come back 
+      sudo: false
       local_action:
         module: wait_for
          host={{ inventory_hostname }}
          port=22
          delay=1
          timeout=300
+      when: reboot is defined
