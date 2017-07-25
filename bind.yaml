@@ -1,4 +1,11 @@
 - hosts: all
   become: true
   roles:
-    - { role: mrLarbi.dns-bind }
+    - { role: mrLarbi.dns-bind 
+        bind_hostname: "lab1"
+        bind_domain_name: "mhermans.prv"
+        bind_ip: "192.168.122.69"
+        bind_mail: "yoda.jedi"
+        bind_is_master: yes
+        bind_master_entries : [ {"name": "ansible", "ip":"192.168.122.74"} ]
+    }
