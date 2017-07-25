@@ -7,6 +7,6 @@
         bind_ip: "192.168.122.69",
         bind_mail: "mhermans.mhermans.prv",
         bind_is_master: yes,
-        bind_master_entries : [ {"name": "ansible", "ip":"192.168.122.74"} ]
+        bind_master_entries : [ {"name": "ansible", "ip":"192.168.122.74"} ],
         bind_listen_on: [ {"ip":"any", port:"53"} ] 
     }
