@@ -1,0 +1,3 @@
+- hosts: lab1
+  roles:
+    - { role: manala.bind }
