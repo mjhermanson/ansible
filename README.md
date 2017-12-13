@@ -6,3 +6,6 @@ Example for looping through iDRAC interfaces and configuring a bunch of RAID car
 
 #patching.yml
 Patches a RHEL/CentOS host w/ reboot
+
+#make_template.yml
+prepares a linux RHEL 6/7 server to become a template. Aims to remove all unique identifiers of the OS

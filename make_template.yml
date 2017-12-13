@@ -1,0 +1,71 @@
+---
+- name: Prepare a server to become a template
+  become: "yes"
+  gather_facts: "no"
+  hosts:
+    - all
+  tasks:
+    - name: stop rsyslog
+      service:
+        name: rsyslog
+        state: stopped 
+    #can't use service module because of manual stop/start error in upstream package: https://stackoverflow.com/questions/41053331/ansible-how-to-restart-auditd-service-on-centos-7-get-error-about-dependency 
+    - name: stop auditd
+      command: /sbin/service auditd stop
+    - name: remove old kernels
+      command: /bin/package-cleanup --oldkernels --count=1 -y
+    - name: clean yum
+      command: /usr/bin/yum clean all 
+      ignore_errors: yes
+    - name: rotate logs
+      command: /usr/sbin/logrotate -f /etc/logrotate.conf
+      ignore_errors: yes
+    - name: remove old logs
+      shell: /bin/rm -f /var/log/*-???????? /var/log/*.gz
+    - name: remove old dmesg
+      file: 
+        path: /var/log/dmesg.old
+        state: absent
+    - name: empty logs 
+      shell: /bin/cat /dev/null > {{ item }}
+      with_items:
+        - /var/log/audit/audit.log
+        - /var/log/wtmp
+        - /var/log/lastlog
+        - /var/log/grubby
+    - name: clear udev rules
+      shell: /bin/rm -f /etc/udev/rules.d/70*
+    - name: Clean everything inside tmp
+      shell: test -d {{ item }} && find {{ item }} -path '{{ item }}/*' -prune -exec rm -rf {} \;
+      with_items: [/tmp]
+    - name: Clean everything inside /var/tmp
+      shell: test -d {{ item }} && find {{ item }} -path '{{ item }}/*' -prune -exec rm -rf {} \;
+      with_items: [/tmp]
+    - name: remove ssh keys
+      shell: /bin/rm -f /etc/ssh/*key*
+    - name: remove root bash history
+      file:
+        path: /root/.bash_history
+        state: absent
+    - name: suspend bash history
+      shell: unset HISTFILE
+    - name: create EMPTY root ssh directory
+      file:
+        path: /root/.ssh
+        state: directory
+    - name: Clean root ssh files
+      shell: test -d {{ item }} && find {{ item }} -path '{{ item }}/*' -prune -exec rm -rf {} \;
+      with_items: [/root/.ssh]
+    - name: remove anaconda-ks.cfg
+      file:
+        path: /root/anaconda-ks.cfg
+        state: absent
+       
+
+#steps
+#/bin/rm –f /etc/ssh/*key*
+#/bin/rm -f ~root/.bash_history
+#unset HISTFILE
+#/bin/rm -rf ~root/.ssh/
+#/bin/rm -f ~root/anaconda-ks.cfg
+
