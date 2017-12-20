@@ -1,8 +1,7 @@
 ---
+# This playbook contains common plays that will be run on all nodes.
 - debug:
     msg: "System {{ inventory_hostname }} is a linux server"
----
-# This playbook contains common plays that will be run on all nodes.
 
 - name: Install ntp
   yum: name=ntp state=present
