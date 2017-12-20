@@ -1,14 +1,16 @@
 ---
-- hosts: all
+- name: "Check the common role on every servers"
+  hosts: all
   roles: 
     - common
 
-- hosts: webservers
-  roles:
-    - common
-    - webservers 
+#- name: "Executre webserver role on webservers"
+#  hosts: webservers
+#  roles:
+#    - common
+#    - webservers 
 
-- hosts: _managed_ansible_role_linux
+- hosts: "Executre linux role on linux servers"
   roles:
     - common
     - linux 
