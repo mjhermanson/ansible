@@ -10,7 +10,8 @@
 #    - common
 #    - webservers 
 
-- hosts: "Executre linux role on linux servers"
+- name: "Executre webserver role on webservers"
+  hosts: _managed_ansible_role_linux
   roles:
     - common
     - linux 
