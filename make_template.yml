@@ -1,7 +1,7 @@
 ---
 - name: Prepare a server to become a template
   become: "yes"
-  gather_facts: "no"
+  gather_facts: "yes"
   hosts:
     - all
   tasks:
@@ -12,6 +12,11 @@
     #can't use service module because of manual stop/start error in upstream package: https://stackoverflow.com/questions/41053331/ansible-how-to-restart-auditd-service-on-centos-7-get-error-about-dependency 
     - name: stop auditd
       command: /sbin/service auditd stop
+    - name: install yum-utils
+      package: 
+        name: yum-utils
+        state: present
+      register: yum-utils-present
     - name: remove old kernels
       command: /bin/package-cleanup --oldkernels --count=1 -y
     - name: clean yum
