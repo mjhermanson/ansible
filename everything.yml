@@ -1,6 +1,7 @@
 ---
 - name: "Check the common role on every servers"
   hosts: all
+  gather_facts: "yes"
   roles: 
     - common
 
@@ -12,5 +13,6 @@
 
 - name: "Execute linux role on linux"
   hosts: _managed_ansible_role_linux
+  gather_facts: "no"
   roles:
     - linux 
