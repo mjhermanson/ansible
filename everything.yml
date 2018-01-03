@@ -5,14 +5,15 @@
   roles: 
     - common
 
+- name: "Execute linux role on linux"
+  hosts: _managed_ansible_role_databases
+  gather_facts: "no"
+  roles:
+    - common
+    - databases 
+
 - name: "Execute webserver role on webservers"
   hosts: _managed_ansible_role_webservers
   roles:
-    - common
     - webservers 
 
-- name: "Execute linux role on linux"
-  hosts: _managed_ansible_role_linux
-  gather_facts: "no"
-  roles:
-    - linux 
