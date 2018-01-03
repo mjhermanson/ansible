@@ -5,7 +5,7 @@
   roles: 
     - common
 
-- name: "Executre webserver role on webservers"
+- name: "Execute webserver role on webservers"
   hosts: _managed_ansible_role_webservers
   roles:
     - common
