@@ -1,3 +1,3 @@
 ---
 - debug:
-    msg: "System {{ inventory_hostname }} is a webserver"
+    msg: "System {{ inventory_hostname }} has a webserver role"
