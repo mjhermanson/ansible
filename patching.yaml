@@ -1,9 +1,9 @@
 ---
-- name: Example ansible play that requires reboot
+- name: Patch linux server(s)
   become: "yes"
   gather_facts: "no"
   hosts:
-    - myhosts
+    - all
   tasks:
     - name: Downloading updates
       command: yum update --downloadonly
