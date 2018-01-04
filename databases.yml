@@ -1,5 +1,5 @@
 ---
-- hosts: _managed_ansible_role_dev_dbservers 
+- hosts: _managed_ansible_role_staging_dbservers 
   roles:
     - common
     - databases 
