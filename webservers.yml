@@ -1,5 +1,5 @@
 ---
-- hosts: _managed_ansible_staging_webservers
+- hosts: all 
   roles:
     - common
     - webservers 
