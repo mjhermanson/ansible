@@ -1,5 +1,5 @@
 ---
-- hosts: _managed_ansible_role_dev__dbservers 
+- hosts: all
   roles:
     - common
     - databases 
