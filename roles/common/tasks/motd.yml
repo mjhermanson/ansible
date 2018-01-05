@@ -1,7 +1,9 @@
-- lineinfile:
+- name: Set ENVIRONMENT in MOTD
+  lineinfile:
     path: /etc/issue.net
     line: 'ENVIRONMENT: development'
 
-- lineinfile:
+- name: Add role COMMON to MOTD
+  lineinfile:
     path: /etc/issue.net
     line: 'ROLE: common'
