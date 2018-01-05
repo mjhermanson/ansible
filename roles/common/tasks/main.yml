@@ -4,9 +4,10 @@
     msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
 
 - name: Configure SSH
-  src: templates/sshd_config
-  dest: /etc/ssh/sshd_config
-  owner: root
-  group: root
-  mode: 0600
+  template:
+    src: templates/sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
 
