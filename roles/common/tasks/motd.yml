@@ -1,0 +1,7 @@
+- lineinfile:
+    path: /etc/issue.net
+    line: 'ENVIRONMENT: development'
+
+- lineinfile:
+    path: /etc/issue.net
+    line: 'ROLE: common'
