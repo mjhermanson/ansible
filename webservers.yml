@@ -1,5 +1,5 @@
 ---
-- hosts: _managed_ansible_role_prod_webservers
+- hosts: all 
   roles:
     - common
     - webservers 
