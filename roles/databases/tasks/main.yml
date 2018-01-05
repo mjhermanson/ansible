@@ -1,5 +1,5 @@
 ---
-- name: Ensure DATABASE in MOTD
+- name: Ensure DATABASE is in MOTD 
   lineinfile:
     path: /etc/issue.net
     line: 'ROLE: database'
