@@ -1,4 +1,5 @@
 ---
-- lineinfile:
+- name: Ensure WEBSERVER is in MOTD
+  lineinfile:
     path: /etc/issue.net
     line: 'ROLE: webserver'
