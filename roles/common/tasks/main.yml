@@ -11,7 +11,7 @@
     group: root
     mode: 0600
   notify:
-    - restard sshd
+    - restart sshd
 
 - name: Create MOTD
   template:
