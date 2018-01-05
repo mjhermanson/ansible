@@ -10,6 +10,8 @@
     owner: root
     group: root
     mode: 0600
+  notify:
+    - restard sshd
 
 - name: Create MOTD
   template:
