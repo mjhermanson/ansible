@@ -1,2 +1,2 @@
 
-This server is in the  DEVELOPMENT environment
+This server is in the {{ environment }} environment
