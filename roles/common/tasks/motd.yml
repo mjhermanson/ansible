@@ -1,7 +1,14 @@
 - name: Set ENVIRONMENT in MOTD
-  lineinfile:
-    path: /etc/issue.net
-    line: 'ENVIRONMENT: {{ git_branch }}'
+#  lineinfile:
+#    path: /etc/issue.net
+#    line: 'ENVIRONMENT: {{ git_branch }}'
+  template:
+    src: /templates/issue.net
+    dest: /etc/issue.net
+    owner: root
+    group: root
+    mode: 0644
+
 
 - name: Ensure role COMMON in MOTD
   lineinfile:
