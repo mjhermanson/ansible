@@ -1,0 +1,6 @@
+---
+- name: Checking Security related configurations (security.yml)
+  hosts: all
+  roles:
+    - security-linux
+    - security-windows
