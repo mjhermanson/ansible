@@ -1,2 +1,1 @@
-
-This server is in the PRODUCTION environment
+This server is in the {{ environment }}  environment

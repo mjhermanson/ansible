@@ -1,8 +1,7 @@
----
 - name: Set ENVIRONMENT in MOTD
   lineinfile:
     path: /etc/issue.net
-    line: 'ENVIRONMENT: production'
+    line: 'ENVIRONMENT: {{ environment }}'
 
 - name: Ensure role COMMON in MOTD
   lineinfile:
