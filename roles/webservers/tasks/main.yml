@@ -3,4 +3,3 @@
   lineinfile:
     path: /etc/issue.net
     line: 'ROLE: webserver'
-
