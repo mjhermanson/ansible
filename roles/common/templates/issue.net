@@ -1,2 +1,2 @@
 
-This server is in the staging environment
+This server is in the {{ environment }}  environment

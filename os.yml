@@ -1,0 +1,6 @@
+---
+- name: Checking Operating System configurations (os.yml)
+  hosts: all
+  roles:
+    - linux
+    - windows
