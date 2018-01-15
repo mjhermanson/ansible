@@ -4,7 +4,3 @@
     path: /etc/issue.net
     line: 'ROLE: webserver'
 
-- name: install apache
-  pkg:
-    name: httpd
-    state: present
