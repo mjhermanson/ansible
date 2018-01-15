@@ -1,1 +1,1 @@
-This server is in the {{ environment }}  environment
+This server is in the {{ git_branch }}  environment
