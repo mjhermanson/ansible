@@ -1,6 +1,6 @@
 
 - name: Ensure role COMMON in roles.txt
   lineinfile:
-    path: /etc/issue.net
+    path: /etc/ansible/roles.txt
     line: 'ROLE: common'
     state: present

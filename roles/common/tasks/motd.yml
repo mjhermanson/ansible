@@ -6,9 +6,3 @@
     group: root
     mode: 0644
 
-
-- name: Ensure role COMMON in roles.txt
-  lineinfile:
-    path: /etc/ansible/roles.txt
-    line: 'ROLE: common'
-    create: yes
