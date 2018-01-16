@@ -13,5 +13,8 @@
   notify:
     - restart sshd
 
-- name: Generate MOTD
+- name: Generate MOTD/banner 
   import_tasks: motd.yml
+
+- name: Generate /etc/ansible/roles.txt 
+  import_tasks: dynamic_roles.yml

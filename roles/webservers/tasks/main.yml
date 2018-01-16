@@ -1,5 +1,5 @@
 ---
-- name: Ensure WEBSERVER is in MOTD
+- name: Ensure WEBSERVER is in roles.txt
   lineinfile:
-    path: /etc/issue.net
+    path: /etc/ansible/roles.txt
     line: 'ROLE: webserver'
