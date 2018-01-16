@@ -3,3 +3,4 @@
   lineinfile:
     path: /etc/ansible/roles.txt
     line: 'ROLE: webserver'
+    create: yes
