@@ -5,11 +5,10 @@
     owner: root
     group: root
     mode: 0644
-    state: present
 
 
 - name: Ensure role COMMON in MOTD
   lineinfile:
-    path: /etc/issue.net
+    path: /etc/ansible/roles.txt
     line: 'ROLE: common'
     state: present

@@ -1,0 +1,6 @@
+
+- name: Ensure role COMMON in roles.txt
+  lineinfile:
+    path: /etc/issue.net
+    line: 'ROLE: common'
+    state: present
