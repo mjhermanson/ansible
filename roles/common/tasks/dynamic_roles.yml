@@ -3,4 +3,5 @@
   lineinfile:
     path: /etc/ansible/roles.txt
     line: 'ROLE: common'
+    create: yes
     state: present
