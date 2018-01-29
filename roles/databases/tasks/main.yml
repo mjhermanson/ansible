@@ -1,5 +1,6 @@
 ---
 - name: Ensure DATABASE is in MOTD 
   lineinfile:
-    path: /etc/issue.net
+    path: /etc/ansible/roles.txt
+    create: yes
     line: 'ROLE: database'
