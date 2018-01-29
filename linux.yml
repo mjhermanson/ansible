@@ -1,6 +1,5 @@
 ---
 - name: Checking Operating System configurations (os.yml)
-  hosts: all
+  hosts: redhat
   roles:
     - linux
-    - windows
