@@ -1,7 +1,7 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 - debug:
-    msg: "System {{ inventory_hostname }} is a linux server"
+    msg: "System {{ inventory_hostname }} is getting the generic LINUX role from {{ git_branch }}"
 
 - name: Install ntp
   yum: name=ntp state=present
@@ -20,3 +20,11 @@
   command: getenforce
   register: sestatus
   changed_when: false
+
+- user:
+    name: root
+    comment: "Root"
+    uid: 0
+    group: root
+    password: {{ root_pw }}
+    
