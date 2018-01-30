@@ -1,4 +1,8 @@
 ---
+
+- name: include password vault
+  include_vars: passwords.yml
+
 # This playbook contains common plays that will be run on all nodes.
 - debug:
     msg: "System {{ inventory_hostname }} is getting the generic LINUX role from {{ git_branch }}"
@@ -26,5 +30,5 @@
     comment: "Root"
     uid: 0
     group: root
-    password: {{ root_pw }}
+    password: {{root_pw}}
     
