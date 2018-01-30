@@ -30,5 +30,5 @@
     comment: "Root"
     uid: 0
     group: root
-    password: {{ root_pw }}
+    password: "{{ root_pw }}"
     
