@@ -1,5 +1,7 @@
 ---
 - name: Checking Operating System configurations (os.yml)
   hosts: redhat
+  vars_files:
+    - vars/vault
   roles:
     - linux
