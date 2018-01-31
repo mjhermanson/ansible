@@ -1,7 +1,9 @@
 ---
 # tasks file for windows
-- name: Add User
+- name: Ensure user bob is present
   win_user:
-    name: ansible
-    password: "r3dh4t1!"
+    name: bob
+    password: B0bP4ssw0rd
     state: present
+    groups:
+      - Users
