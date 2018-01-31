@@ -7,3 +7,7 @@
     state: present
     groups:
       - Users
+- name: Install git
+  win_chocolatey:
+    name: git
+    state: present
