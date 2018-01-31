@@ -1,7 +1,5 @@
 ---
 # tasks file for windows
-
----
 - name: Add a user
   hosts: all
   gather_facts: false
