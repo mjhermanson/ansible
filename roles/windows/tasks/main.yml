@@ -1,11 +1,7 @@
 ---
 # tasks file for windows
-- name: Add a user
-  hosts: all
-  gather_facts: false
-  tasks:
-    - name: Add User
-      win_user:
-        name: ansible
-        password: "r3dh4t1!"
-        state: present
+- name: Add User
+  win_user:
+    name: ansible
+    password: "r3dh4t1!"
+    state: present
