@@ -5,7 +5,7 @@
   vars_files:
     - vars/windows.yml
   hosts:
-    - {{ windows_patch_hosts }}
+    - "{{ windows_patch_hosts }}"
   tasks:
 # Check if there are missing updates
     - block:
