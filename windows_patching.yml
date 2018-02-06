@@ -1,6 +1,7 @@
 ---
 - name: Patch Windows server(s)
   gather_facts: "no"
+  become: false
   vars_files:
     - vars/windows.yml
   hosts:
