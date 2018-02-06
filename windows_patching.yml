@@ -3,7 +3,7 @@
   gather_facts: "no"
   become: "true"
   become_method: runas
-  become_user: Bob
+  become_user: bob
   ansible_become_password: "{{ become_password_for_bob }}"
   vars_files:
     - vars/windows.yml
