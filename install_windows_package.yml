@@ -1,0 +1,13 @@
+---
+- name: Install Package on Windows(s)
+  gather_facts: "yes"
+  become: false
+  vars_files:
+    - vars/windows.yml
+  hosts:
+    - "{{ windows_package_host }}"
+  tasks:
+    - name: Install package
+      win_chocolatey:
+        name: "{{ windows_package_name }}"
+        state: present
