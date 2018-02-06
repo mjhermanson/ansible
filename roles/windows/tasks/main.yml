@@ -15,3 +15,11 @@
   with_items:
   - git
   - googlechrome 
+
+- name: use win_dsc module with the Registry DSC resource
+  win_dsc:
+    resource_name: Registry
+    Ensure: Present
+    Key: HKEY_LOCAL_MACHINE\SOFTWARE\ExampleKey
+    ValueName: TestValue
+    ValueData: TestData
