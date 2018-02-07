@@ -1,10 +1,6 @@
 ---
 - name: Patch Windows server(s)
   gather_facts: "no"
-  become: "true"
-  become_method: runas
-  become_user: administrator
-  ansible_become_password: "{{ ansible_become_password  }}"
   vars_files:
     - vars/windows.yml
   hosts:
@@ -13,13 +9,21 @@
 # Check if there are missing updates
     - block:
         - name: Check for missing updates.
+          become: "true"
+          become_method: runas
+          become_user: administrator
+          become_password: "{{ ansible_become_password  }}"
           win_updates: 
-            state: searched
+           state: searched
           register: update_count
  
     #Install missing updates only if at least one is missing
     - block:
         - name: Install missing updates.
+          become: "true"
+          become_method: runas
+          become_user: administrator
+          become_password: "{{ ansible_become_password  }}"
           win_updates:
             category_names:
               - Application
