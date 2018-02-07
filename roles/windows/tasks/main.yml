@@ -11,6 +11,7 @@
 - name: Run whoami
   become: yes
   become_user: bob
+  become_method: runas
   win_shell: whoami
 
 
