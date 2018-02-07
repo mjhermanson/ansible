@@ -1,20 +1,17 @@
 ---
 - name: Patch Windows server(s)
   gather_facts: "no"
-  become: "true"
-  become_method: runas
-  become_user: administrator
-  ansible_become_password: "{{ ansible_become_password  }}"
   vars_files:
     - vars/windows.yml
   hosts:
     - "{{ windows_patch_hosts }}"
+  #  - windows
   tasks:
 # Check if there are missing updates
     - block:
         - name: Check for missing updates.
           win_updates: 
-            state: searched
+           state: searched
           register: update_count
  
     #Install missing updates only if at least one is missing
@@ -34,7 +31,3 @@
               - CriticalUpdates
               - SecurityUpdates
           register: update_result
-#        - name: Reboot, if needed.
-#          win_reboot:
-#          when: update_result.reboot_required
-      when: update_count.found_update_count|int >= 1
