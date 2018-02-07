@@ -10,7 +10,7 @@
 
 - name: Run whoami
   become: yes
-  become_user: "{{ username }}"
+  become_user: bob
   win_shell: whoami
 
 
