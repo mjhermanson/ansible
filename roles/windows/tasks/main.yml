@@ -12,6 +12,7 @@
   become: yes
   become_user: bob
   become_method: runas
+  become_password: "{{ ansible_become_password }}"
   win_shell: whoami
 
 
