@@ -1,0 +1,12 @@
+---
+- name: Install Package on Linux host(s)
+  gather_facts: "no"
+  hosts:
+    - "{{ windows_package_host }}"
+  tasks:
+    - name: Install package
+      package:
+        name: "{{ linux_package_name }}"
+        state: latest
+
+#comment
