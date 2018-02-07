@@ -2,7 +2,7 @@
 - name: Patch Windows server(s)
   gather_facts: "no"
   vars_files:
-    - vars/windows.yml
+    - vars/windows_become.yml
   hosts:
     - "{{ windows_patch_hosts }}"
   tasks:
