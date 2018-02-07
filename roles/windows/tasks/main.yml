@@ -7,7 +7,12 @@
     state: present
     groups:
       - Users
-      - Administrator
+
+- name: Run whoami
+  become: yes
+  become_user: "{{ username }}"
+  win_shell: whoami
+
 
 - name: Install multiple packages
   win_chocolatey:
