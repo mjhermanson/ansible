@@ -1,5 +1,5 @@
 ---
 - name: Checking Operating System configurations (linux.yml)
-  hosts: tag_linux
+  hosts: linux
   roles:
     - linux
