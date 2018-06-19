@@ -15,7 +15,6 @@
     username: "{{ rhn_user }}"
     password: "{{ rhn_pass }}"
     pool_ids: "{{ rhn_pool_id }}"
-    force_register: yes
   when: sub_status.rc == 1
 
 - name: Install ntp
