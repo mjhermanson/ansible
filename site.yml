@@ -2,13 +2,14 @@
 - name: "Master site play"
   hosts: all
   tasks:
-    - debug: site play
+    - debug:
+      msg: site play
 
 - name: import_playbook everything.yml
   import_playbook: everything.yml
 - name: import_playbook linux.yml
-      import_playbook: linux.yml
+  import_playbook: linux.yml
 - name: import_playbook windows.yml
-      import_playbook: windows.yml
+  import_playbook: windows.yml
 - name: import_playbook webservers.yml
-      import_playbook: webservers.yml
+  import_playbook: webservers.yml
