@@ -21,7 +21,7 @@
     pool_ids: "{{ rhn_pool_id }}"
   when: sub_status.rc == 1
 
-- - name: Disable all RHSM repositories
+- name: Disable all RHSM repositories
   rhsm_repository:
     name: 'rhel-7-server-htb-rpms'
     state: disabled
