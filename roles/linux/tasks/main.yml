@@ -4,6 +4,20 @@
 - debug:
     msg: "System {{ inventory_hostname }} is getting the generic LINUX role from {{ git_branch }}"
 
+- name: check to see if system is already registered
+  command: subscription-manager status
+  register: sub_status
+  ignore_errors: true
+
+- name: Register system
+  redhat_subscription:
+    state: present
+    username: "{{ rhn_user }}"
+    password: "{{ rhn_pass }}"
+    pool_ids: "{{ rhn_pool_id }}"
+    force_register: yes
+  when: sub_status.rc == 1
+
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
@@ -28,4 +42,3 @@
     uid: 0
     group: root
     password: "{{ root_pw }}"
-    
