@@ -1,11 +1,19 @@
 ---
-- name: "Master site play"
-  hosts: all
+- name: "Master site play for Linux"
+  hosts: tag_linux
   vars_files:
     - vars/vault
   roles:
     - common
     - linux
-    - windows
     - databases
     - webservers
+
+- name: "Master site play for Linux"
+  hosts: tag_windows
+  vars_files:
+    - vars/vault
+    - vars/winrm.yml
+  roles:
+    - common
+    - windows
