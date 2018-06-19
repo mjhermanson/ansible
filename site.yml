@@ -3,9 +3,6 @@
   hosts: all
   vars_files:
     - vars/vault
-    - vars/windows.yml
-    - vars/winrm.yml
-    - vars/windows_become.yml
   roles:
     - common
     - linux

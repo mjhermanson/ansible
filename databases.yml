@@ -1,6 +1,0 @@
----
-- name: Checking configuration state of Databases
-  hosts: all
-  roles:
-    - common
-    - databases

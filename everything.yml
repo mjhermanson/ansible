@@ -1,6 +1,0 @@
----
-- name: "Check the common role on every servers"
-  hosts: all
-  gather_facts: "yes"
-  roles:
-    - common

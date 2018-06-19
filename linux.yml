@@ -1,5 +1,0 @@
----
-- name: Checking Operating System configurations (linux.yml)
-  hosts: linux
-  roles:
-    - linux

@@ -1,7 +1,0 @@
----
-- name: Checking Operating System configurations (windows.yml)
-  hosts: windows
-  vars_files:
-    - vars/windows.yml
-  roles:
-    - windows
