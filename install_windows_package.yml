@@ -11,4 +11,3 @@
         name: "{{ windows_package_name }}"
         state: latest
 
-#comment
