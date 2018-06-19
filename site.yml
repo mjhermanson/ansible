@@ -1,9 +1,14 @@
 ---
 - name: "Master site play"
   hosts: all
+  vars_files:
+    - vars/vault
+    - vars/windows.yml
+    - vars/winrm.yml
+    - windows_become.yml
   tasks:
     - debug:
-      msg: site play
+      msg: "site.yml execution"
 
 - name: import_playbook everything.yml
   import_playbook: everything.yml

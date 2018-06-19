@@ -2,17 +2,5 @@
 - name: "Check the common role on every servers"
   hosts: all
   gather_facts: "yes"
-  roles: 
+  roles:
     - common
-
-- name: "Execute database role on on servers tagged dev:linux:databases"
-  hosts: _managed_ansible_role_dev_linux_databases
-  gather_facts: "no"
-  roles:
-    - databases 
-
-- name: "Execute webserver role on servers tagged dev::webservers"
-  hosts: _managed_ansible_role_dev_linux_webservers
-  roles:
-    - webservers 
-

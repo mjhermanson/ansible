@@ -1,7 +1,5 @@
 ---
 - name: Checking Operating System configurations (linux.yml)
-  hosts: all
-  vars_files:
-    - vars/vault
+  hosts: tag_linux
   roles:
     - linux
