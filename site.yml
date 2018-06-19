@@ -1,5 +1,9 @@
 ---
-- name: "Master site.yml play"
+- name: "Master site play"
   hosts: all
   tasks:
-    - import_playbook: webservers.yml
+    - name: "Import playbooks"
+      import_playbook: everything.yml
+      import_playbook: linux.yml
+      import_playbook: windows.yml
+      import_playbook: webservers.yml
