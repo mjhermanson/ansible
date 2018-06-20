@@ -9,7 +9,7 @@
     - databases
     - webservers
 
-- name: "Master site play for Linux"
+- name: "Master site play for Windows"
   hosts: tag_windows
   vars_files:
     - vars/vault
