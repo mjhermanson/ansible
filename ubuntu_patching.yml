@@ -11,9 +11,6 @@
     # Use a block to perform tasks conditionally—only if running Ubuntu 12.04.
     - block:
 
-      - debug:
-          msg: 'This server is running Ubuntu 12.04 LTS and will be upgraded to 14.04 LTS.'
-
       # Now would be a good time to take a backup if you can trigger an
       # automated backup!
 
@@ -39,4 +36,4 @@
         connection: local
         become: no
 
-      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '12.04'
+      when: ansible_distribution == 'Ubuntu'
