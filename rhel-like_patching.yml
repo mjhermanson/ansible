@@ -6,6 +6,8 @@
     - _managed_patching_group_group_1
   vars_files:
     - vars/vault
+  roles:
+    - { role: redhataccess.redhat-access-insights-client, when: ansible_os_family == 'RedHat' }
   tasks:
     - name: check to see if system is already registered
       command: subscription-manager status
