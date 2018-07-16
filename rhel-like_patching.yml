@@ -1,4 +1,23 @@
 ---
+- name: check RHEL subscriptions
+  become: yes
+  gather_facts: no
+  hosts:
+    - _managed_patching_group_group_1
+  tasks:
+    - name: check to see if system is already registered
+      command: subscription-manager status
+      register: sub_status
+      ignore_errors: true
+
+    - name: Register system
+      redhat_subscription:
+        state: present
+        username: "{{ rhn_user }}"
+        password: "{{ rhn_pass }}"
+        pool_ids: "{{ rhn_pool_id }}"
+      when: sub_status.rc == 1
+
 - name: Patch RHEL/CentOS server(s)
   become: "yes"
   gather_facts: "no"
@@ -15,13 +34,9 @@
       changed_when: "true"
       debug: msg='trigger machine reboot sequence'
       notify:
-        - get current time
         - reboot system
         - waiting for server to come back
-    - name: get current time
-      command: /bin/date +%s
-      register: before_reboot
-      become: false
+
     - name: reboot system
       shell: sleep 2 && shutdown -r now "Ansible package updates triggered"
       async: 1
@@ -29,6 +44,7 @@
       ignore_errors: true
       register: reboot
     - name: waiting for server to come back
+
       become: false
       local_action:
         module: wait_for
