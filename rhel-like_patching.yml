@@ -4,6 +4,8 @@
   gather_facts: no
   hosts:
     - _managed_patching_group_group_1
+  vars_files:
+    - vars/vault
   tasks:
     - name: check to see if system is already registered
       command: subscription-manager status
