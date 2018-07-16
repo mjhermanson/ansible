@@ -1,3 +1,4 @@
 #
 - src: geerlingguy.apache
 - src: oVirt.ovirt-ansible-roles
+- src: redhataccess.redhat-access-insights-client
