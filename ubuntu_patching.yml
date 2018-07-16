@@ -1,5 +1,5 @@
 ---
-- hosts: tag_os_ubuntu
+- hosts: all
   gather_facts: yes
   become: yes
   vars:
