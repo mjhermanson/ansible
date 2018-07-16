@@ -22,6 +22,7 @@
 
       - name: Run do-release-upgrade non-interactively.
         command: do-release-upgrade -f DistUpgradeViewNonInteractive
+        ignore_errors: true
 
       - name: Reboot the server.
         command: reboot
