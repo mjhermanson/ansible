@@ -30,8 +30,8 @@
         poll: 0
         ignore_errors: true
         register: reboot
-      - name: waiting for server to come back
 
+      - name: waiting for server to come back
         become: false
         local_action:
           module: wait_for
