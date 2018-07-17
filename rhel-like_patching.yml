@@ -9,7 +9,7 @@
   roles:
     - { role: redhataccess.redhat-access-insights-client, when: ansible_os_family == 'RedHat' }
   tasks:
-    - block:
+    block:
       - name: check to see if system is already registered
         command: subscription-manager status
         register: sub_status
