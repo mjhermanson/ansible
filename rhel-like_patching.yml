@@ -32,7 +32,7 @@
   tasks:
     - name: Downloading updates
       command: yum update --downloadonly
-      warn: False
+      ignore_warnings: yes
     - name: Update all available packages
       yum: name=* state=latest
       notify: reboot sequence
