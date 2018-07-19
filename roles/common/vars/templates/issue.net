@@ -1,5 +1,5 @@
 This server is in the {{ git_branch }} environment
 
 {% if scheduled_downtime %}
-THIS SERVER IS GOING DOWN FOR MAINTENENCE.
+Server is available
 {% endif %}
