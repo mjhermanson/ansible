@@ -1,13 +1,13 @@
 ---
 - name: check RHEL agents and subscription state
   become: yes
-  gather_facts: no
+  gather_facts: yes
   hosts:
     - tag_patching_group_1
   vars_files:
     - vars/vault
-  #roles:
-  #  - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
+  roles:
+    - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
   tasks:
     - block:
         - name: check to see if system is already registered
