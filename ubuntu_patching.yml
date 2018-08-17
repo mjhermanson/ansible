@@ -1,6 +1,6 @@
 ---
 - name: Patching Group2 (ubuntu)
-  hosts: _managed_patching_group_group_2
+  hosts: tag_patching_group_2
   gather_facts: yes
   become: yes
   vars:
