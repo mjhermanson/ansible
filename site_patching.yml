@@ -11,5 +11,5 @@
 - name: "Ubuntu Patching"
   import_playbook: ubuntu_patching.yml
 
-- name: "Windows OS patching Patching"
-  import_playbook: windows_patching.yml
+#- name: "Windows OS patching Patching"
+  #import_playbook: windows_patching.yml
