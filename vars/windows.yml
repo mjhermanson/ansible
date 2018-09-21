@@ -1,6 +1,6 @@
 ---
-ansible_user: Administrator
-ansible_password: c.$bhsi;ohUgqG5Y&qW5DzGGh(AO=MEi
+ansible_user: Ansible
+ansible_password: RedHat123
 ansible_port: 5986
 ansible_connection: winrm
 # The following is necessary for Python 2.7.9+ (or any older Python that has backported SSLContext, eg, Python 2.7.5 on RHEL7) when using default WinRM self-signed certificates:
