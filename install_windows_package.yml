@@ -1,12 +1,12 @@
 ---
-- name: Install Package on Windows(s)
+- name: Manage Package on Windows(s)
   gather_facts: "yes"
   vars_files:
     - vars/windows.yml
   hosts:
     - "{{ windows_package_host }}"
   tasks:
-    - name: Install package
+    - name: Manage package
       win_chocolatey:
         name: "{{ windows_package_name }}"
-        state: latest
+        state: "{{ windows_package_state }}"
