@@ -3,6 +3,7 @@
   gather_facts: "yes"
   vars:
     ansible_connection: winrm
+    ansible_become_method: runas
     ansible_winrm_server_cert_validation: ignore
     ansible_winrm_read_timeout_sec: 150
     ansible_winrm_operation_timeout_sec: 120
@@ -10,7 +11,7 @@
     - vars/windows.yml
   hosts: all
   tasks:
-    - name: Install package
+    - name: Manage package
       win_chocolatey:
         name: "{{ windows_package_name }}"
-        state: latest
+        state: {{ state }}
