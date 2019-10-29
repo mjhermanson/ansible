@@ -1,6 +1,7 @@
 ---
 - name: Install Package on Linux host(s)
   gather_facts: "no"
+  become: "yes"
   hosts:
     - linux
   tasks:
