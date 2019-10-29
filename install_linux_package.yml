@@ -7,5 +7,5 @@
     - name: Install package
       package:
         name: "{{ linux_package_name }}"
-        state: {{ state }}
+        state: "{{ state }}"
 
