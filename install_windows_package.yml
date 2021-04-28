@@ -7,8 +7,6 @@
     ansible_winrm_server_cert_validation: ignore
     ansible_winrm_read_timeout_sec: 150
     ansible_winrm_operation_timeout_sec: 120
-  vars_files:
-    - vars/windows.yml
   hosts: all
   tasks:
     - name: Manage package
